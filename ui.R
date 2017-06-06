@@ -3,7 +3,7 @@ shinyUI(fluidPage(
   titlePanel('deef (data extractor for electronic forms)',
              'deef'),
   
-  tags$p('Compatible with Microsoft Word files with name ending .docx'),
+  tags$p('Compatible with Microsoft Word files with file name ending .docx'),
   
   fileInput(
     'wordfiles',
@@ -17,13 +17,17 @@ shinyUI(fluidPage(
     placeholder = "No file selected"
   ),
   
-  dataTableOutput('wordfiles'),
-  
   checkboxInput('verbose', 
                 label='Print details to console (when run locally)', 
                 value=FALSE
   ),
   
- dataTableOutput('formdata')
+  tags$h2('Files uploaded'),
+  
+  dataTableOutput('wordfiles'),   
+  
+  tags$h2('Data extracted'),
+  
+  dataTableOutput('formdata')
  
 ))
