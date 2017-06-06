@@ -15,8 +15,7 @@ See illustration for where to find these in the Word "ribbon".
 
 ![Compatible widgets](img/widgets.png)
 
-Text Form Fields are currently not reliably extracted due to the complexity of
-the XML underlying `.docx` files. 
+Text Form Fields are currently not reliably extracted due to the complexity of the XML underlying `.docx` files. It is safest to use a table to structure your questionnaire and to put each widget in a separate cell. 
 
 Data can be copied to the clipboard or downloaded from the app as CSV or Microsoft Excel files.
 
