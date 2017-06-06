@@ -13,5 +13,9 @@ which contain certain *legacy* electronic form fields:
 
 See illustration for where to find these in the Word "ribbon". 
 
+![Compatible widgets](img/widgets.png)
+
 Text Form Fields are currently not reliably extracted due to the complexity of
 the XML underlying `.docx` files. 
+
+Data can be copied to the clipboard or downloaded from the apps as CSV or Microsoft Excel files.
