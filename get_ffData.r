@@ -9,7 +9,7 @@ get_ffData <- function(filepath,
   # NB: each form field must be in own table cell
   
   require(XML)
-  require(xml2)
+  require(xml2)  # Use only xpath (1.0) expressions
   
   if (!file.exists(filepath)) stop('File ', filepath,
   ' not found. Try changing working directory or giving full path.')
@@ -108,26 +108,28 @@ get_ffData <- function(filepath,
       }    
       
       # textInput result is split 
-      # first part is in same para after `noProof` node 
-      # rest also follows `noProof` nodes but hard to delineate
+      # demarcated by fldCharType
+      # BUT may be more than one pair in para
+      # and xpath is greedy
   
       textInput_node <- xml_find_first(ffData_node,
                                        './/w:textInput')
       
       if (!is.na(xml_text(textInput_node))) {
         
-        # Find results after `noProof` nodes - not infallible
-        noProof_node_samep <- xml_find_all(textInput_node,
-                         '../../../../w:r/w:rPr/w:noProof')
-        noProof_node_after <- xml_find_all(textInput_node,
-           '../../../../following-sibling::w:p/w:r/w:rPr/w:noProof')
-        result1_node <- xml_find_first(textInput_node,
-                         '../../../following-sibling::w:r/w:t')
-        result1 <- xml_text(result1_node)
-        result2_node <- xml_find_first(noProof_node_after,
-                                     '../following-sibling::w:t')
-        result2 <- xml_text(result2_node)
-        result <- paste0(c(result1, result2), collapse=' ')
+        parent_para <- xml_find_first(textInput_node, '../../../..')
+        
+        # Code below too greedy
+        # and indexing e.g. adding [1] anywhere doesn't work
+        # result_nodeset <- xml_find_all(parent_para,
+        #       ".//w:r[preceding-sibling::w:r[w:fldChar/@w:fldCharType='begin'] and following-sibling::w:r[w:fldChar/@w:fldCharType='end']]/w:t")
+        
+        textInput_run <- xml_find_first(textInput_node, '../../..')
+        
+        result_nodeset <- xml_find_all(textInput_run,
+              "following-sibling::w:r[following-sibling::w:r[w:fldChar/@w:fldCharType='end']]/w:t")  # FIXME
+        
+        result <- paste0(xml_text(result_nodeset), collapse='')
         
       }
       
