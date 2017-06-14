@@ -5,6 +5,14 @@ shinyUI(fluidPage(
   
   tags$p('Compatible with Microsoft Word files with file name ending .docx'),
   
+  tags$a('GitLab project page', href='https://gitlab.phe.gov.uk/Paul.Cleary/deef', target='_blank>'),
+  
+  tags$p(),
+  
+  tags$a('Test files', href='https://gitlab.phe.gov.uk/Paul.Cleary/deef/tree/master/test_files', target='_blank'),
+  
+  tags$p(),
+  
   fileInput(
     'wordfiles',
     label=NULL,

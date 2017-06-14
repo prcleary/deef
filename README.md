@@ -17,7 +17,7 @@ See illustration for where to find these in the Word "ribbon".
 
 Limitation: Text Form Field data extracted may include other text in the same paragraph as the content control so it is safest to use a table to structure your questionnaire and to put each content control in a separate cell. 
 
-Data can be copied to the clipboard or downloaded from the app as CSV or Microsoft Excel files.
+Data can be copied to the clipboard or downloaded from the app as CSV or Microsoft Excel files. 
 
 You can run the app direct from GitLab with the code below.
 The following packages must be installed:

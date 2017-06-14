@@ -14,7 +14,8 @@ shinyServer(function(input, output) {
     wordfiles()
     })
   
-  formdata <- reactive({   
+  formdata <- reactive({     
+    
     if (input$verbose) cat('\n', paste(wordfiles()$datapath, '\n'))
     datalist <- lapply(as.list(wordfiles()$datapath),  
                        function(x) get_ffData(x, verbose=input$verbose))  
@@ -23,13 +24,14 @@ shinyServer(function(input, output) {
     output
   })
   
-  output$formdata <- DT::renderDataTable({formdata()}, 
-                                     extensions = 'Buttons', 
-                                     options = list(  
-                                       dom = 'Bfrtip',  
-                                       buttons = c('copy', 
-                                                   'excel',
-                                                   'csv'
-                                                   )))
+  output$formdata <- DT::renderDataTable({   
+    formdata() 
+    },  extensions = 'Buttons',  
+    options = list(   
+      dom = 'Bfrtip',   
+      buttons = c('copy',  
+                  'excel', 
+                  'csv' 
+                  )))
   
 })
