@@ -32,6 +32,7 @@ shinyServer(function(input, output) {
       buttons = c('copy',  
                   'excel', 
                   'csv' 
-                  )))
+                  )),
+    server=FALSE)
   
 })
