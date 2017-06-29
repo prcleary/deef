@@ -117,12 +117,17 @@ get_ffData <- function(filepath,
         parent_para <- xml_find_first(textInput_node,
                                       "./ancestor::w:p")
         
-        # Get parent paragraph runs with `noProof`
-        parent_para_noProof_runs <-
-          xml_find_all(parent_para, './/w:r[w:rPr/w:noProof]')
+        # Get `textInput` run
+        textInput_run <- xml_find_first(textInput_node,
+                                        "./ancestor::w:r")
+         
+        # Get remaining parent paragraph runs
+        parent_para_runs <-
+          xml_find_all(textInput_run, 
+                       'following-sibling::w:r')
         
-        # Get text from `noProof` runs in parent paragraph
-        parent_para_t <- xml_find_all(parent_para_noProof_runs,
+        # Get text from remaining following runs in parent paragraph
+        parent_para_t <- xml_find_all(parent_para_runs,
                                       './/w:t')
         
         # Find all paragraphs that are following siblings
@@ -130,14 +135,14 @@ get_ffData <- function(filepath,
           xml_find_all(parent_para,
                        "following-sibling::w:p")
         
-        # Find all runs in those paragraphs with `noProof` nodes
-        following_para_noProof_runs <-
+        # Find all runs in those paragraphs
+        following_para_runs <-
           xml_find_all(following_para,
-                       "w:r[w:rPr/w:noProof]")
+                       "w:r")
         
-        # Get text from `noProof` runs in following paragraphs
+        # Get text from runs in following paragraphs
         following_para_t <-
-          xml_find_all(following_para_noProof_runs,
+          xml_find_all(following_para_runs,
                        './/w:t')
         
         result <- paste0(c(xml_text(parent_para_t), 
