@@ -107,29 +107,42 @@ get_ffData <- function(filepath,
         
       }    
       
-      # textInput result is split 
-      # demarcated by fldCharType
-      # BUT may be more than one pair in para
-      # and xpath is greedy
-  
       textInput_node <- xml_find_first(ffData_node,
                                        './/w:textInput')
       
       if (!is.na(xml_text(textInput_node))) {
         
-        parent_para <- xml_find_first(textInput_node, '../../../..')
+        # Select innermost containing paragraph
+        # relative to `ffData_node`
+        parent_para <- xml_find_first(textInput_node,
+                                      "./ancestor::w:p")
         
-        # Code below too greedy
-        # and indexing e.g. adding [1] anywhere doesn't work
-        # result_nodeset <- xml_find_all(parent_para,
-        #       ".//w:r[preceding-sibling::w:r[w:fldChar/@w:fldCharType='begin'] and following-sibling::w:r[w:fldChar/@w:fldCharType='end']]/w:t")
+        # Get parent paragraph runs with `noProof`
+        parent_para_noProof_runs <-
+          xml_find_all(parent_para, './/w:r[w:rPr/w:noProof]')
         
-        textInput_run <- xml_find_first(textInput_node, '../../..')
+        # Get text from `noProof` runs in parent paragraph
+        parent_para_t <- xml_find_all(parent_para_noProof_runs,
+                                      './/w:t')
         
-        result_nodeset <- xml_find_all(textInput_run,
-              "following-sibling::w:r[following-sibling::w:r[w:fldChar/@w:fldCharType='end']]/w:t")  # FIXME
+        # Find all paragraphs that are following siblings
+        following_para <-
+          xml_find_all(parent_para,
+                       "following-sibling::w:p")
         
-        result <- paste0(xml_text(result_nodeset), collapse='')
+        # Find all runs in those paragraphs with `noProof` nodes
+        following_para_noProof_runs <-
+          xml_find_all(following_para,
+                       "w:r[w:rPr/w:noProof]")
+        
+        # Get text from `noProof` runs in following paragraphs
+        following_para_t <-
+          xml_find_all(following_para_noProof_runs,
+                       './/w:t')
+        
+        result <- paste0(c(xml_text(parent_para_t), 
+                           xml_text(following_para_t)), 
+                         collapse = '')
         
       }
       
