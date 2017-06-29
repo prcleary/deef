@@ -144,6 +144,9 @@ get_ffData <- function(filepath,
                            xml_text(following_para_t)), 
                          collapse = '')
         
+        result <-
+          gsub("\\s+", " ", str_trim(result))
+        
       }
       
       if (verbose) message('Result is ', result)

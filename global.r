@@ -1,6 +1,7 @@
 library(data.table)
 library(DT)
 library(shiny)
+library(stringr)
 library(XML)
 library(xml2)
 
