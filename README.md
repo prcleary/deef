@@ -11,9 +11,9 @@ which contain certain *legacy* electronic form fields:
 - Check Box Form Fields
 - Drop-Down Form Fields
 
-See illustration for where to find these in the Word "ribbon". 
-
 ![Compatible widgets](img/widgets.png)
+
+See illustration for where to find these in the Word "ribbon". 
 
 ![Word options](img/protection.png)
 
