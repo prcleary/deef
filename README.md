@@ -15,7 +15,18 @@ See illustration for where to find these in the Word "ribbon".
 
 ![Compatible widgets](img/widgets.png)
 
+![Word options](img/protection.png)
+
+Then you can protect the document thus: 
+
+![Protecting the form](img/protection2.png)
+
+You don’t need to set a password. 
+
 Limitation: Text Form Field data extracted may include other text in the same paragraph as the content control so it is safest to use a table to structure your questionnaire and to put each content control in a separate cell, without any following text in the same cell. 
+
+The questionnaire needs to be "protected" before use, otherwise the fields can be overwritten. You first need to make the Developer tab visible on the Ribbon as shown below, using Word Options:
+
 
 Data can be copied to the clipboard or downloaded from the app as CSV or Microsoft Excel files. 
 
