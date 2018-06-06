@@ -46,6 +46,6 @@ library(shiny)
 runUrl('https://gitlab.phe.gov.uk/Paul.Cleary/deef/repository/archive.zip')
 ```
 
-The app is also available to run from the PHE test Shiny Server [here](http://158.119.199.25:3838/paul/deef/).
+The app is also available to run from the PHE test Shiny Server [here](http://shiny.users.unix.phe.gov.uk:3838/paul/deef/).
 
 You can also use the extraction function in your own code - see <https://gitlab.phe.gov.uk/snippets/58>. 
