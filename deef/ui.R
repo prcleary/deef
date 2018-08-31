@@ -5,11 +5,15 @@ shinyUI(fluidPage(
   
   tags$p('Compatible with Microsoft Word files with file name ending .docx'),
   
-  tags$a('GitLab project page', href='https://gitlab.phe.gov.uk/Paul.Cleary/deef', target='_blank>'),
+  tags$a('GitLab project page (PHE only)', href='https://gitlab.phe.gov.uk/Paul.Cleary/deef', target='_blank>'),
   
   tags$p(),
   
-  tags$a('Test files', href='https://gitlab.phe.gov.uk/Paul.Cleary/deef/tree/master/test_files', target='_blank'),
+  tags$a('GitHub project page)', href='https://github.com/prcleary/deef', target='_blank>'),
+  
+  tags$p(),
+  
+  tags$a('Test files (PHE only - but also present in GitHub repo)', href='https://gitlab.phe.gov.uk/Paul.Cleary/deef/tree/master/test_files', target='_blank'),
   
   tags$p(),
   
