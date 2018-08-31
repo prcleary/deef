@@ -31,8 +31,6 @@ Limitation: Text Form Field data extracted may include other text in the same pa
 
 Data can be copied to the clipboard or downloaded from the app as CSV or Microsoft Excel files. 
 
-You can run the app direct from GitLab with the code below.
-
 The following packages must be installed:
 
 - `data.table`
@@ -40,11 +38,6 @@ The following packages must be installed:
 - `shiny`
 - `XML`
 - `xml2`
-
-```
-library(shiny)
-runUrl('https://gitlab.phe.gov.uk/Paul.Cleary/deef/repository/archive.zip')
-```
 
 The app is also available to run from the PHE test Shiny Server [here](http://shiny.users.unix.phe.gov.uk:3838/paul/deef/) if you have access to the PHE network. You can also run the app at the Government Digital Service at <https://deef.cloudapps.digital/> (hosted on government servers but no sensitive data please to be on the safe side).
 
