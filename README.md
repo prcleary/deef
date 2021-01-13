@@ -2,7 +2,7 @@
 files with name ending `.docx`, i.e. compatible with Microsoft Office 2007 
 and later.
 
-It is a work in progress. Please log any issues in this GitLab project. For any other queries drop [me](mailto:paul.cleary@phe.gov.uk?Subject=deef) an email.
+It is a work in progress. Please log any issues in this project. For any other queries drop [me](mailto:paul.cleary@phe.gov.uk?Subject=deef) an email.
 
 It allows you to load and extract form field data from a batch of `.docx` files 
 which contain certain *legacy* electronic form fields:
@@ -39,7 +39,7 @@ The following packages must be installed:
 - `XML`
 - `xml2`
 
-The app is also available to run from the PHE test Shiny Server [here](http://shiny.users.unix.phe.gov.uk:3838/paul/deef/) if you have access to the PHE network. You can also run the app at the Government Digital Service at <https://deef.cloudapps.digital/> (hosted on government servers but no sensitive data please to be on the safe side).
+The app is also available to run as a demo at <https://deef.paulcleary.net> (hosted on my server but no sensitive data please).
 
-You can also use the extraction function in your own code - see <https://gitlab.phe.gov.uk/snippets/58>. 
+You can also use the extraction function in your own code - see <https://gist.github.com/prcleary/c7f4dcbd9226c491ee53161ad7f88cef>.
 
