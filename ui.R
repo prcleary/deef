@@ -5,7 +5,7 @@ shinyUI(fluidPage(
   
   tags$p('Compatible with Microsoft Word files with file name ending .docx'),
   
-  tags$a('GitHub project page)', href='https://github.com/prcleary/deef', target='_blank>'),
+  tags$a('GitHub project page', href='https://github.com/prcleary/deef', target='_blank>'),
   
   tags$p(),
   
