@@ -13,3 +13,11 @@ RUN mkdir /srv/shiny-server/deef
 
 COPY ./*.[rR] /srv/shiny-server/deef/
 
+RUN chown -R shiny /srv/shiny-server/
+RUN chown -R shiny /var/lib/shiny-server/
+
+USER 997
+
+LABEL io.openshift.expose-services="8080:http"
+
+CMD ["R", "-e", "shiny::runApp( '/srv/shiny-server/deef', host = '0.0.0.0', port = 3838)"]
