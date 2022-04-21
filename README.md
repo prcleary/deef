@@ -1,10 +1,9 @@
 `deef` is a data extractor for electronic forms, compatible with Microsoft Word 
-files with name ending `.docx`, i.e. compatible with Microsoft Office 2007 
-and later.
+files with name ending `.docx` and/or `.docm`, i.e. compatible with Microsoft Office 2007 and later.
 
 It is a work in progress. Please log any issues in this project. For any other queries drop [me](mailto:paul.cleary@phe.gov.uk?Subject=deef) an email.
 
-It allows you to load and extract form field data from a batch of `.docx` files 
+It allows you to load and extract form field data from a batch of `.docx` and/or `.docm` files 
 which contain certain *legacy* electronic form fields:
 
 - Text Form Fields 
@@ -12,6 +11,8 @@ which contain certain *legacy* electronic form fields:
 - Drop-Down Form Fields
 
 See illustration for where to find these in the Word "ribbon". 
+
+See also this helpful YouTube clip for more information on using legacy form fields in Microsoft Word: <https://www.youtube.com/watch?v=rCjVKZcXMP0>
 
 ![Compatible widgets](img/widgets.png)
 
@@ -39,7 +40,25 @@ The following packages must be installed:
 - `XML`
 - `xml2`
 
-The app is also available to run as a demo at <https://deef.paulcleary.net> (hosted on my server but no sensitive data please).
+You can install all dependencies with:
+
+``` r
+install.packages(c('data.table', 'DT', 'shiny', 'XML', 'xml2'), dependencies = TRUE)
+```
+
+You can easily run the app on your own machine with a single command if you have R, RStudio and the above packages installed.
+
+``` r
+shiny::runUrl('https://github.com/prcleary/deef/archive/refs/heads/master.zip')
+```
 
 You can also use the extraction function in your own code - see <https://gist.github.com/prcleary/c7f4dcbd9226c491ee53161ad7f88cef>.
+
+You can also run it in a Docker container - see enclosed Dockerfile.
+
+**TODO**
+
+- [ ] Rebuild based on Shiny modules to make it extensible
+- [ ] Use a better-looking framework such as [`shiny.fluent`](https://appsilon.github.io/shiny.fluent/index.html
+- [ ] Make the app available online via UKHSA OpenShift
 
