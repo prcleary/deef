@@ -14,7 +14,8 @@ shinyUI(fluidPage(
     label=NULL,
     multiple = TRUE,
     accept = c(
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'application/vnd.ms-word.document.macroEnabled.12'
     ),
     width = '30%',
     buttonLabel = "Click here",
