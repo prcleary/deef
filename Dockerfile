@@ -18,6 +18,8 @@ RUN chown -R shiny /var/lib/shiny-server/
 
 USER 997
 
+EXPOSE 3838
+
 LABEL io.openshift.expose-services="8080:http"
 
 CMD ["R", "-e", "shiny::runApp( '/srv/shiny-server/deef', host = '0.0.0.0', port = 3838)"]
